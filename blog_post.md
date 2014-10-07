@@ -68,11 +68,11 @@ We have set up two hosts that can see each other so let's check what's happening
 
 If all is okay we can now start our Docker container on the first host:
 
-    CONTAINER=$(weave run 10.0.0.101/24 -t -i cazcade/weave-multicast-tutorial /run.sh Mal)
+    CONTAINER=$(weave run 10.0.0.101/24 -t -i cazcade/weave-multicast-tutorial /run.sh Mal) docker attach $CONTAINER
 
 And the second host:
 
-    CONTAINER=$(weave run 10.0.0.102/24 -t -i cazcade/weave-multicast-tutorial /run.sh Jayne)
+    CONTAINER=$(weave run 10.0.0.102/24 -t -i cazcade/weave-multicast-tutorial /run.sh Jayne)  docker attach $CONTAINER
 
 That's it, you should now have a working chat system using multicast to connect your machines across a public cloud network, all thanks to Weave!
 
