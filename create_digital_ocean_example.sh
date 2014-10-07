@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash -eu
 cd $(dirname $0)
 count=1
 #size=66
@@ -43,6 +43,7 @@ echo "Now waiting for them to be active and installing .."
 for i in $(seq 1 ${count})
 do
     tugboat wait weave-multicast-demo-${i}
+    sleep 10
     while ! tugboat ssh -c true weave-multicast-demo-${i} &> /dev/null
     do
         echo "Waiting for ssh to be ready"
