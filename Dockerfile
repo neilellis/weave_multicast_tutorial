@@ -1,4 +1,5 @@
 FROM ubuntu:14.04
+RUN apt-get update
 RUN apt-get install -y build-essential
 ADD c/ /root/c/
 RUN gcc -o mcsend c/mcsend.c ; gcc -o mcreceive c/mcreceive.c
