@@ -50,3 +50,13 @@ do
     tugboat ssh -c "apt-get -y install git; git clone https://github.com/cazcade/weave_multicast_tutorial.git; cd weave_multicast_tutorial; chmod +x *.sh; ./install.sh ${i} ${ips}"  weave-multicast-demo-${i}
 done
 
+
+echo "Now create seperate sessions and do the following in seperate terminal windows:"
+
+for id in $(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f5 | tr -d ' ' | tr -d ')')
+do
+    echo "tugboat ssh -c \"docker attach $(< ~/.container_id)\" -i ${id}"
+done
+
+echo "And when you're finished, just run $(pwd)/cleanup.sh"
+
