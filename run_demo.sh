@@ -1,10 +1,7 @@
 #!/bin/bash -eux
 host_id=$(<~/.weave_host_id)
-weave launch "10.0.0.$((100 + ${host_id}))/24"
 network="10.0.0.${host_id}/24"
 echo "Network for this host is $network"
-#Grace period
-sleep 30
 C=$(weave run $network -t -i cazcade/weave-multicast-tutorial /run.sh ${host_id})
 echo "Container is $C"
 echo $C > ~/.container_id
