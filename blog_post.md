@@ -1,7 +1,9 @@
+Let's run multicast on a public cloud
+
 Multicast is dead, long live multicast!
 =======================================
 
-Let's start with a little background on [Multicast](http://en.wikipedia.org/wiki/IP_multicast).
+A little background on [Multicast](http://en.wikipedia.org/wiki/IP_multicast) is worthwhile.
 
 Multicast allows you to broadcast packets to multiple recipients via a known logical address. The address you are sending packets to is a logical destination and is not tied to any piece of hardware. Any device can then listen to that address and receive messages sent to it.
 
@@ -9,7 +11,7 @@ Wait a minute! I hear you cry, that's pub/sub - yes boys and girls it's a Layer 
 
 Okay, so that's the problems. Now for the advantages. If you have a working multicast environment, apps can discover each other and you get [Zero-configuration networking](http://en.wikipedia.org/wiki/Zero-configuration_networking) without the need for setting up single point of failure software to discover your services through. It's a flexible solution that takes the concerns away from the application stack and places it into the network stack where it belongs.
 
-What we need is a flat unpartitioned single tenant network.
+What we need is a flat un-partitioned single tenant network.
 
 The Cloud
 ---------
@@ -60,8 +62,22 @@ And on the second host set the variable seed_host to be equal to the external IP
 
     weave launch "10.0.0.102/24" ${seed_host}
 
-So now we have two hosts
+We have set up two hosts that can see each other so let's check what's happening on either host enter:
 
+    weave status
+
+If all is okay we can now start our Docker container on the first host:
+
+    CONTAINER=$(weave run 10.0.0.101/24 -t -i cazcade/weave-multicast-tutorial /run.sh Mal)
+
+And the second host:
+
+    CONTAINER=$(weave run 10.0.0.102/24 -t -i cazcade/weave-multicast-tutorial /run.sh Jayne)
+
+That's it, you should now have a working chat system using multicast to connect your machines across a public cloud network, all thanks to Weave!
+
+
+The example C code used in the Docker example comes from http://www.nmsl.cs.ucsb.edu/MulticastSocketsBook/
 
 
 
