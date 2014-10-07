@@ -15,7 +15,7 @@ echo "** This operation will destroy any droplets with the name containing 'weav
 echo "Please create an SSH key for your Digital Ocean account and then enter the numeric value"
 echo "(Known keys for your account are listed below)"
 tugboat  keys
-read -p "key> " key
+read -p "numeric key id> " key
 
 if ! tugboat keys | grep "id: ${key}"
 then
@@ -49,9 +49,11 @@ do
         echo "Waiting for ssh to be ready"
         sleep 10
     done
+    sleep 20
     ips=$(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f2 | cut -d, -f1 | tr -d ' ')
     tugboat ssh -c "apt-get -y -q install git; git clone https://github.com/cazcade/weave_multicast_tutorial.git; cd weave_multicast_tutorial; chmod +x *.sh; ./install.sh ${i}"  weave-multicast-demo-${i}
-    tugboat ssh -c "cd weave_multicast_tutorial;  ./run_demo.sh ${i} ${ips}"  weave-multicast-demo-${i}
+    sleep 20
+    tugboat ssh -c " cd weave_multicast_tutorial; ./run_demo.sh ${i} ${ips}"  weave-multicast-demo-${i}
 done
 
 
