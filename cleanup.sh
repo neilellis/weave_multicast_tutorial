@@ -3,4 +3,5 @@
 for id in $(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f5 | tr -d ' ' | tr -d ')')
 do
     tugboat destroy -i $id
+    tugboat wait -s off $id
 done
