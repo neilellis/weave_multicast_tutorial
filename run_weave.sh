@@ -1,7 +1,7 @@
 #!/bin/bash -eu
 host_id=$(<~/.weave_host_id)
-weave launch "192.168.0.$((100 + ${host_id}))/24"
-network="192.168.0.${host_id}/24"
+weave launch "10.0.0.$((100 + ${host_id}))/24" $@
+network="10.0.0.${host_id}/24"
 echo "Network for this host is $network"
 C=$(weave run $network -t -i weave-multicast-tutorial ./run.sh ${host_id})
 echo "Container is $C"

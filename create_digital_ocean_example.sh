@@ -17,15 +17,19 @@ read -p "key> " key
 
 if ! tugboat keys | grep "id: ${key}"
 then
-    echo "Sorry that key was recognized, please make sure it is listed below"
+    echo "Sorry that key was not recognized, please make sure it is listed below:"
     tugboat keys
     exit -1
 fi
 
+destroyed=false
 for id in $(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f5 | tr -d ' ' | tr -d ')')
 do
-    tugboat destroy -i $id || ( echo "Failed to destroy existing machine, run $(pwd)/cleanup.sh" && exit -1)
+    tugboat destroy -i $id || ( echo "Failed to destroy existing machine, please run $(pwd)/cleanup.sh" && exit -1)
+    destroyed=true
 done
+
+( ${destroyed} && sleep 30 ) || :
 
 echo "Creating ${count} droplets of 512MB memory in LON1"
 for i in $(seq 1 ${count})
@@ -42,6 +46,7 @@ do
         echo "Waiting for ssh to be ready"
         sleep 10
     done
-    tugboat ssh -c "apt-get -y install git; git clone https://github.com/cazcade/weave_multicast_tutorial.git; cd weave_multicast_tutorial; chmod +x *.sh; ./install.sh ${i}"  weave-multicast-demo-${i} &> /dev/null
+    ips=$(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f2 | cut -d, -f1 | tr -d ' ')
+    tugboat ssh -c "apt-get -y install git; git clone https://github.com/cazcade/weave_multicast_tutorial.git; cd weave_multicast_tutorial; chmod +x *.sh; ./install.sh ${i} ${ips}"  weave-multicast-demo-${i}
 done
 
