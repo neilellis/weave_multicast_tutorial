@@ -61,7 +61,7 @@ echo "Now create seperate sessions and do the following in seperate terminal win
 
 for id in $(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f5 | tr -d ' ' | tr -d ')')
 do
-    echo "tugboat ssh -c \"docker attach $(< ~/.container_id)\" -i ${id}"
+    echo "tugboat ssh -c 'docker attach $(< ~/.container_id)\" -i $(< ~/.weave_host_id)'"
 done
 
 echo "And when you're finished, just run $(pwd)/cleanup.sh"
