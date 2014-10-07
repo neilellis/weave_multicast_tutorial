@@ -1,6 +1,8 @@
 #!/bin/bash -eux
 cd $(dirname $0)
 count=1
+#size=66
+size=62
 
 if !which tugboat &> /dev/null
 then
@@ -34,7 +36,7 @@ done
 echo "Creating ${count} droplets of 512MB memory in LON1"
 for i in $(seq 1 ${count})
 do
-    tugboat create -s 66 -i 6375976 -r 7 weave-multicast-demo-${i} -k ${key}
+    tugboat create -s ${size} -i 6375976 -r 7 weave-multicast-demo-${i} -k ${key}
 done
 
 echo "Now waiting for them to be active and installing .."
