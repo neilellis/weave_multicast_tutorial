@@ -19,3 +19,6 @@ Obviously creating droplets will incur charges.
 
 If you would like to contact me I'm **neilellis** at **me.com** and I am [@neilellis](http://twitter.com/neilellis) on Twitter
 
+Read more from me at http://neilellis.github.io/blog
+----------------------------------------------------
+
