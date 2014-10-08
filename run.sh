@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash -eu
 cd /root
 
 while ! grep -q ^1$ /sys/class/net/ethwe/carrier 2>/dev/null
