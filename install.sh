@@ -1,8 +1,8 @@
 #!/bin/bash -eu
 ./install_weave.sh
-host_id=$1
-echo ${host_id} > ~/.weave_host_id
+host_id="${1}"
 shift
+echo ${host_id} > ~/.weave_host_id
 echo "Launching Weave"
-echo  "sleep 1 ; weave launch \"10.0.0.$((100 + ${host_id}))/24\" $@" | at now
+echo  "sleep 2 ; weave launch \"10.0.0.$((100 + ${host_id}))/24\" $@" | at now
 

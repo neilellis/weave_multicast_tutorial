@@ -12,4 +12,4 @@ ip=$(ip addr show ethwe | grep inet | grep -v inet6 | sed 's/^[ ]*inet //g'| cut
 
 echo "Welcome to the Weave Multicast Chat Demo"
 echo
-sed -e "s/^/${1}> " | /mcsend 239.1.2.3 1234
+sed -e "s/^/${1}/> " | /mcsend 239.1.2.3 1234
