@@ -1,8 +1,8 @@
 #!/bin/bash -eu
 cd $(dirname $0)
 count=2
-#size=66
-size=62
+size=66
+#size=62
 
 if !which tugboat &> /dev/null
 then

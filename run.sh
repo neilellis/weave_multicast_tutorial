@@ -8,14 +8,14 @@ do
 done
 ip=$(ip addr show ethwe | grep inet | grep -v inet6 | sed 's/^[ ]*inet //g'| cut -d/ -f 1)
 
-(/mcreceive 239.1.2.3 1234 ) &
-
 echo "Welcome to the Weave Multicast Chat Demo"
 echo
 
+(/mcreceive 239.1.2.3 1234 | grep -v ": ${1}>" | sed "s/^Received [0-9]* bytes from //g") &
+
 while read -p "${1}> " line
 do
-    echo "${1}> $line"
+    echo "$line"
 done | /mcsend 239.1.2.3 1234
 
 
