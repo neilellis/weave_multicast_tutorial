@@ -44,7 +44,7 @@ for i in $(seq 1 ${count})
 do
     tugboat wait weave-multicast-demo-${i}
     sleep 10
-    while ! tugboat ssh -c true weave-multicast-demo-${i} &> /dev/null
+    while ! tugboat ssh -c true weave-multicast-demo-${i}
     do
         echo "Waiting for ssh to be ready"
         sleep 10
