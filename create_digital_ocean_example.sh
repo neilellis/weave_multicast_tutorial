@@ -58,9 +58,9 @@ done
 
 echo
 echo
-echo "  ******************************************************"
-echo "  * Now  do the following in seperate terminal windows *"
-echo "  ******************************************************"
+echo "  *****************************************************"
+echo "  * Now do the following in seperate terminal windows *"
+echo "  *****************************************************"
 echo
 echo
 
@@ -69,5 +69,9 @@ do
     echo "tugboat ssh -c \"docker attach \\\$(< ~/.container_id)\" -i ${id}"
 done
 
+echo
+echo
 echo "And when you're finished, just run $(pwd)/cleanup.sh"
+echo
+echo
 
