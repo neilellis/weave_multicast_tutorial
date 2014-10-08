@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/bin/bash -eux
 cd /root
 
 while ! grep -q ^1$ /sys/class/net/ethwe/carrier 2>/dev/null
@@ -8,8 +8,10 @@ do
 done
 ip=$(ip addr show ethwe | grep inet | grep -v inet6 | sed 's/^[ ]*inet //g'| cut -d/ -f 1)
 
-( /mcreceive 239.1.2.3 1234  | grep -v "^${1}> " ) &
+( /mcreceive 239.1.2.3 1234  | grep -v "${1}> " ) &
 
 echo "Welcome to the Weave Multicast Chat Demo"
 echo
-sed -e "s/^/${1}> /" | /mcsend 239.1.2.3 1234
+sed  "s/^/${1}> /" | /mcsend 239.1.2.3 1234
+
+
