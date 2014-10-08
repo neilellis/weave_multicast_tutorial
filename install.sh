@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 ./install_weave.sh
-ufw allow 6783fdsfds
+ufw allow 6783
 host_id="${1}"
 shift
 echo ${host_id} > ~/.weave_host_id
