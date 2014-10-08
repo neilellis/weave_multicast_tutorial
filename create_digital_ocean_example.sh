@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 cd $(dirname $0)
-count=1
+count=2
 #size=66
 size=62
 
