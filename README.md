@@ -3,7 +3,7 @@ Weave Multicast Tutorial
 
 Please see **URL HERE** for the blog that this tutorial supports.
 
-The [blog post's source](https://github.com/cazcade/weave_multicast_tutorial/blob/master/blog_post.md) will guide you through using Docker and [Weave](https://github.com/zettio/weave)
+The [blog post's source](https://github.com/cazcade/weave_multicast_tutorial/blob/master/blog_post.md) will guide you through using [Docker](https://www.docker.com/) and [Weave](https://github.com/zettio/weave) to create a multicast network on a public cloud.
 
 If you have a [Digital Ocean](https://www.digitalocean.com/?refcode=7b4639fc8194) account and you've already set up [Tugboat](https://github.com/pearkes/tugboat) on your machine then just:
 
@@ -17,5 +17,5 @@ When you're finished:
 
 Obviously creating droplets will incur charges.
 
-If you would like to contact me I'm **neilellis** @ **me.com** and I am [@neilellis](http://twitter.com/neilellis) on Twitter
+If you would like to contact me I'm **neilellis** at **me.com** and I am [@neilellis](http://twitter.com/neilellis) on Twitter
 
