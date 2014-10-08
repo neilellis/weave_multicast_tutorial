@@ -50,8 +50,8 @@ do
         sleep 10
     done
     sleep 20
-    ips=$(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f2 | cut -d, -f1 | tr -d ' ')
-    tugboat ssh -c "apt-get -y -q install git; git clone https://github.com/cazcade/weave_multicast_tutorial.git; cd weave_multicast_tutorial; chmod +x *.sh; ./install.sh ${i}  ${ips}"  weave-multicast-demo-${i}
+    ips=$(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f2 | cut -d, -f1 | tr -d ' ' | tr '\n' ' ')
+    tugboat ssh -c "apt-get -y -q install git; git clone https://github.com/cazcade/weave_multicast_tutorial.git; cd weave_multicast_tutorial; chmod +x *.sh; ./install.sh ${i} ${ips}"  weave-multicast-demo-${i}
     sleep 20
     tugboat ssh -c " cd weave_multicast_tutorial; ./run_demo.sh ${i}"  weave-multicast-demo-${i}
 done
@@ -63,6 +63,7 @@ echo "  * Now  do the following in seperate terminal windows *"
 echo "  ******************************************************"
 echo
 echo
+
 for id in $(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f5 | tr -d ' ' | tr -d ')')
 do
     echo "tugboat ssh -c \"docker attach \\\$(< ~/.container_id)\" -i ${id}"

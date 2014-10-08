@@ -3,9 +3,9 @@ Weave Multicast Tutorial
 
 Please see **URL HERE** for the blog that this tutorial supports.
 
-The blog posts source is here: https://github.com/cazcade/weave_multicast_tutorial/blob/master/blog_post.md
+The [blog post's source](https://github.com/cazcade/weave_multicast_tutorial/blob/master/blog_post.md) will guide you through using Docker and [Weave](https://github.com/zettio/weave)
 
-If you have a Digital Ocean account and you've already set up tugboat on your machine then just:
+If you have a [Digital Ocean](https://www.digitalocean.com/?refcode=7b4639fc8194) account and you've already set up [Tugboat](https://github.com/pearkes/tugboat) on your machine then just:
 
     git clone https://github.com/cazcade/weave_multicast_tutorial.git
     cd weave_multicast_tutorial
@@ -16,4 +16,6 @@ When you're finished:
     ./cleanup.sh
 
 Obviously creating droplets will incur charges.
+
+If you would like to contact me I'm **neilellis** @ **me.com** and I am [@neilellis](http://twitter.com/neilellis) on Twitter
 
