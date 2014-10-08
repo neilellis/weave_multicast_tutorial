@@ -39,7 +39,7 @@ do
     tugboat create -s ${size} -i 6375976 -r 7 weave-multicast-demo-${i} -k ${key}
 done
 
-echo "Now waiting for them to be active and installing .."
+echo "Now waiting for it to be active and installed"
 for i in $(seq 1 ${count})
 do
     tugboat wait weave-multicast-demo-${i}
@@ -56,9 +56,13 @@ do
     tugboat ssh -c " cd weave_multicast_tutorial; ./run_demo.sh ${i} ${ips}"  weave-multicast-demo-${i}
 done
 
-
-echo "Now create seperate sessions and do the following in seperate terminal windows:"
-
+echo
+echo
+echo "  ******************************************************"
+echo "  * Now  do the following in seperate terminal windows *"
+echo "  ******************************************************"
+echo
+echo
 for id in $(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f5 | tr -d ' ' | tr -d ')')
 do
     echo "tugboat ssh -c \"docker attach \\\$(< ~/.container_id)\" -i ${id}"
