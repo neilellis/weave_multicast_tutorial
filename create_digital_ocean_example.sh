@@ -51,7 +51,7 @@ do
     done
     sleep 30
     ips=$(tugboat droplets | grep ^weave-multicast-demo- | cut -d: -f2 | cut -d, -f1 | tr -d ' ' | tr '\n' ' ')
-    tugboat ssh -c "apt-get -y -q install git; git clone https://github.com/cazcade/weave_multicast_tutorial.git; cd weave_multicast_tutorial; chmod +x *.sh; ./install.sh ${i} ${ips}"  weave-multicast-demo-${i}
+    tugboat ssh -c "apt-get -y -q install git; git clone https://github.com/neilellis/weave_multicast_tutorial.git; cd weave_multicast_tutorial; chmod +x *.sh; ./install.sh ${i} ${ips}"  weave-multicast-demo-${i}
     sleep 20
     tugboat ssh -c " cd weave_multicast_tutorial; ./run_demo.sh ${i}"  weave-multicast-demo-${i}
 done

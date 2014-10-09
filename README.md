@@ -7,7 +7,7 @@ The [blog post's source](https://github.com/cazcade/weave_multicast_tutorial/blo
 
 If you have a [Digital Ocean](https://www.digitalocean.com/?refcode=7b4639fc8194) account and you've already set up [Tugboat](https://github.com/pearkes/tugboat) on your machine then just:
 
-    git clone https://github.com/cazcade/weave_multicast_tutorial.git
+    git clone https://github.com/neilellis/weave_multicast_tutorial.git
     cd weave_multicast_tutorial
     ./create_digital_ocean_example.sh
 
