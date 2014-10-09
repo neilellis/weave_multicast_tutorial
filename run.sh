@@ -13,9 +13,6 @@ echo
 
 (/mcreceive 239.1.2.3 1234  | sed "s/^Received [0-9]* bytes from //g") &
 
-while read -p "${1}> " line
-do
-    echo "$line"
-done | /mcsend 239.1.2.3 1234
+(while read -p "${1}> " line; do echo "$line"; done ) | /mcsend 239.1.2.3 1234
 
 
