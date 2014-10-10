@@ -1,11 +1,15 @@
-Multicast on a public cloud
-===========================
+Running Multicast on a Public Cloud
+===================================
 
 A little background on [Multicast](http://en.wikipedia.org/wiki/IP_multicast) is worthwhile.
 
 Multicast allows you to broadcast packets to multiple recipients via a known logical address. The address you are sending packets to is a logical destination and is not tied to any piece of hardware. Any device can then listen to that address and receive messages sent to it.
 
-Wait a minute! I hear you cry, that's pub/sub - yes boys and girls it's a Layer 2 pub/sub protocol. But it's not all fruit cake and lollipops I'm afraid. You see something has to manage the logical addresses and that would be your routers. Each of which can easily be incorrectly configured and all of which is vulnerable to Denial of Service. It's because of these concerns that multicast has had very patchy adoption. If you're a Mac user you may have come across the problems that [Bonjour](http://www.apple.com/support/bonjour/) has with a partitioned network, i.e. it doesn't "just work". This means that iTunes and other pieces of OS X software don't see each other. This is because something on your network is not forwarding the multicast packets, usually a wireless router.
+Wait a minute! I hear you cry, that's pub/sub - yes boys and girls it's a Layer 2 pub/sub protocol.
+
+But it's not all fruit cake and lollipops I'm afraid, you see something has to manage the logical addresses, and that would be your routers. Each of which can easily be incorrectly configured and all of which is vulnerable to Denial of Service. It's because of these concerns that multicast has had very patchy adoption.
+
+If you're a Mac user you may have come across the problems that [Bonjour](http://www.apple.com/support/bonjour/) has with a partitioned network, i.e. it doesn't "just work". This means that iTunes and other pieces of OS X software don't see each other. This is because something on your network is not forwarding the multicast packets, usually a wireless router.
 
 Okay, so that's the problems. Now for the advantages. If you have a working multicast environment, apps can discover each other and you get [Zero-configuration networking](http://en.wikipedia.org/wiki/Zero-configuration_networking) without the need for setting up single point of failure software to discover your services through. It's a flexible solution that takes the concerns away from the application stack and places it into the network stack where it belongs.
 
@@ -74,5 +78,25 @@ And the second host:
 
 That's it, you should now have a working chat system using multicast to connect your machines across a public cloud network, all thanks to [Weave](https://github.com/zettio/weave)!
 
+If you're lazy (like me) and just want to see it working, then go and get your [Digital Ocean Account](https://www.digitalocean.com/?refcode=7b4639fc8194), set up [Tugboat](https://github.com/pearkes/tugboat) on your machine then just:
 
-The example C code used in the [Docker](https://www.docker.com/) example comes from http://www.nmsl.cs.ucsb.edu/MulticastSocketsBook/
+    git clone https://github.com/neilellis/weave_multicast_tutorial.git
+    cd weave_multicast_tutorial
+    ./create_digital_ocean_example.sh
+
+When you're finished remove the droplets with:
+
+    ./cleanup.sh
+
+Obviously creating droplets will incur charges.
+
+All the best
+
+Neil Ellis
+
+- E: hello@ **neilellis.me**
+- W: http://neilellis.me
+- T: http://twitter.com/neilellis
+- B: http://neilellis.github.io/blog
+
+<h4>The example C code used in the [Docker](https://www.docker.com/) example comes from http://www.nmsl.cs.ucsb.edu/MulticastSocketsBook/</h4>
