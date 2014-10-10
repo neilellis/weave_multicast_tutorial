@@ -20,10 +20,10 @@ Obviously creating droplets will incur charges.
 All the best
 Neil Ellis
 
-E: hello@ **neilellis.me**
-W: http://neilellis.me
-T: http://twitter.com/neilellis
-B: http://neilellis.github.io/blog
+- E: hello@ **neilellis.me**
+- W: http://neilellis.me
+- T: http://twitter.com/neilellis
+- B: http://neilellis.github.io/blog
 
 Read more from me at http://neilellis.github.io/blog
 ----------------------------------------------------

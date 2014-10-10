@@ -1,7 +1,5 @@
-Let's run multicast on a public cloud
-
-Multicast is dead, long live multicast!
-=======================================
+Multicast on a public cloud
+===========================
 
 A little background on [Multicast](http://en.wikipedia.org/wiki/IP_multicast) is worthwhile.
 
@@ -78,7 +76,3 @@ That's it, you should now have a working chat system using multicast to connect 
 
 
 The example C code used in the [Docker](https://www.docker.com/) example comes from http://www.nmsl.cs.ucsb.edu/MulticastSocketsBook/
-
-
-
-
