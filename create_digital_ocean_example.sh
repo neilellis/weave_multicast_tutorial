@@ -2,6 +2,8 @@
 cd $(dirname $0)
 count=2
 size=66
+image=6882330
+region=7
 #size=62
 
 if !which tugboat &> /dev/null
@@ -36,7 +38,7 @@ done
 echo "Creating ${count} droplets of 512MB memory in LON1"
 for i in $(seq 1 ${count})
 do
-    tugboat create -s ${size} -i 6375976 -r 7 weave-multicast-demo-${i} -k ${key}
+    tugboat create -s ${size} -i ${image} -r ${region} weave-multicast-demo-${i} -k ${key}
 done
 
 echo "Now waiting for it to be active and installed"
