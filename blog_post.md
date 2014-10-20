@@ -5,7 +5,7 @@ A little background on [Multicast](http://en.wikipedia.org/wiki/IP_multicast) is
 
 Multicast allows you to broadcast packets to multiple recipients via a known logical address. The address you are sending packets to is a logical destination and is not tied to any piece of hardware. Any device can then listen to that address and receive messages sent to it.
 
-This is publish/subscribe (or pub/sub) at the network (Layer 2) level, which facilitates amongst other things auto-discovery of service. In fact this is how Apple's 'it just works' networking, [Bonjour](http://www.apple.com/support/bonjour/) works.
+This is publish/subscribe (or pub/sub) at the IP Layer 3 level, which facilitates amongst other things auto-discovery of service. In fact this is how Apple's 'it just works' networking, [Bonjour](http://www.apple.com/support/bonjour/) works.
 
 But it's not all fruit cake and lollipops I'm afraid, something has to manage those logical addresses, and that would be your routers. Each of which can easily be incorrectly configured and all of which is vulnerable to Denial of Service. It's because of these concerns that multicast has had very patchy adoption.
 
