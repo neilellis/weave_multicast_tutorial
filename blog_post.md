@@ -97,6 +97,5 @@ Neil Ellis
 - E: hello@ **neilellis.me**
 - W: http://neilellis.me
 - T: http://twitter.com/neilellis
-- B: http://neilellis.github.io/blog
 
 *The example C code used in the [Docker](https://www.docker.com/) example comes from http://www.nmsl.cs.ucsb.edu/MulticastSocketsBook/*
